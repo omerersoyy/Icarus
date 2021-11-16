@@ -1,11 +1,11 @@
-import {baseURL, headers} from '../../config/ApiConfig';
+import ApiConfig from '../../config/ApiConfig';
 import {create} from 'apisauce';
 
 export const createClient = () => {
   const client = create({
-    baseURL,
+    baseURL: ApiConfig.baseURL,
     timeout: 10000,
-    headers,
+    headers: ApiConfig.headers,
   });
 
   const getAllCards = () => client.get('/cards');

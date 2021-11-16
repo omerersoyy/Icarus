@@ -1,13 +1,14 @@
 import {combineReducers} from 'redux';
-import rootSaga from '../middleware';
+import rootSaga from '../sagas';
 import AsyncStorage from '@react-native-community/async-storage';
 import {persistStore, persistReducer} from 'redux-persist';
-import transform from './ImmutablePersistTransform';
+import transform from './utils/ImmutablePersistTransform';
 import {createStore, applyMiddleware} from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import {cardsReducer} from './CardsRedux';
 
 export const reducers = combineReducers({
-
+  cards: cardsReducer,
 });
 
 const rootPersistConfig = {
