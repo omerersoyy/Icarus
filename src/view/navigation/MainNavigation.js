@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {useNavigation} from '@react-navigation/native';
 import MainScreen from '../screens/MainScreen';
 import DetailScreen from '../screens/DetailScreen';
+import ColorScheme from '../utils/ColorScheme';
 
 const MainStack = createStackNavigator();
 
@@ -31,6 +32,12 @@ const MainNavigation = () => {
         headerTitleAlign: 'center',
         headerLeft: null,
         presentation: 'card',
+        headerStyle: {
+          backgroundColor: ColorScheme.primary,
+        },
+        headerTitleStyle: {
+          color: ColorScheme.info,
+        },
         cardStyleInterpolator,
       }}
       initialRouteName={'Main'}>
@@ -39,7 +46,7 @@ const MainNavigation = () => {
         name={'Main'}
         component={MainScreen}
         options={{
-          title: 'Card Mechanics',
+          title: 'Mechanics',
         }}
       />
       <MainStack.Screen
@@ -47,7 +54,7 @@ const MainNavigation = () => {
         name={'Detail'}
         component={DetailScreen}
         options={{
-          title: 'Card Mechanics',
+          title: 'Cards',
         }}
       />
     </MainStack.Navigator>
